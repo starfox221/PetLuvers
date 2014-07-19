@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="general">
+		<h2>{{user.first_name}} ({{user.username}})</h2>
+		PROFILE IMAGE
+		{% if profile.is_sitter %}
+		<p>{{profile.description}}</p>
+		<p>I Sit: {%if profile.sit_cats%}CAT IMAGE{% endif %} {%if profile.sit_dogs%}DOG IMAGE{% endif %} {%if profile.sit_birds%}BIRD IMAGE{% endif %}</p>
+		<p>I Charge {{profile.price}} per pet per night.</p>
+		<p>My Qualifications: {{profile.qualifications}}</p>
+		<p>I'm not willing to sit: {{profile.not_willing_to_sit}}</p>
+		<p>Other Concerns: {{profile.concerns}}</p>
+		{% endif %}
+		
+		{% if profile.is_owner %}
+		<h4>My Pets:</h4>
+		{% for pet in profile.pets.all %}
+		PET IMAGE <strong>{{pet.name}}</strong> ({{pet.pet_type}})
+		<p>{{pet.description}}</p>
+		
+		{% endfor %}
+		{% endif %}
+	</div>
+	<div class="location">General Location: {{profile.zip_code}}<br/>Map Here</div>
+{% endblock %}

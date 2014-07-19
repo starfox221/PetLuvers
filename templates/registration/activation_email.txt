@@ -1,0 +1,6 @@
+{% load i18n %}
+Thank you for registering for an account at Petluvers. In order to access your account, you need to set a password. If you believe that this has been done in error, please ignore this email. Click below to set up your password and login.
+
+To activate your account, go here: {{ site }}/accounts/activate/{{ activation_key }}/
+
+{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}

@@ -1,0 +1,94 @@
+<!-- note that there's also blue.uni-form.css and dark.uni-form.css available if you want to try changing defaults up -->
+{% extends "registration/reg-base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% crispy example_form example_form.helper %}
+
+
+{% block title %}
+Registration
+{% endblock %}
+
+{% block content %}
+ <form class="pure-form pure-form-stacked">
+   
+        Become a Pet Luver today!
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="username">Username</label>
+                {{ form.username }}
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="email">Email</label>
+                {{ form.email }}
+            </div>
+
+          
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="password1">Password</label>
+                {{ form.password1 }} 
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="password2">Password (again..pretty please?)</label>
+                 {{ form.password2 }} 
+                             </div>
+   </div>
+
+        <label for="terms" class="pure-checkbox">
+           {{ form.is_sitter }} I want to be a Pet Sitter or list my business! 
+        </label>
+
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+
+<form class="sitter_info pure-form pure-form-stacked">
+    <fieldset>
+        <legend>Legend</legend>
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text">
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text">
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="email">E-Mail</label>
+                <input id="email" type="email" required>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="city">City</label>
+                <input id="city" type="text">
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="state">State</label>
+                <select id="state" class="pure-input-1-2">
+                    <option>AL</option>
+                    <option>CA</option>
+                    <option>IL</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="terms" class="pure-checkbox">
+            <input id="terms" type="checkbox"> I've read the terms and conditions
+        </label>
+
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+  
+
+ 
+{% endblock %}
